@@ -1,13 +1,13 @@
 # Debug Operations in Kubernetes
 
-When running containers on [Kubernetes](https://kubernetes.io/docs/concepts/overview/),
+When monitoring containers on [Kubernetes](https://kubernetes.io/docs/concepts/overview/),
 you may need to debug those containers to troubleshoot an issue.
 To interact with a container, use the [kubectl command-line tool](https://kubernetes.io/docs/tasks/tools/#kubectl).
-This tool offers many ways to communicate with Kubernettes clusters using the API.
+This tool offers a way to communicate with Kubernettes clusters using the API.
 To use the commands, first [install kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
-This document offers an overview of some of the most useful commands for debugging operations on your Kubernetes clusters.
-If you need more options, see a [complete list of Kubernetes commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-).
+This document offers an overview of some of the most useful commands for debugging your Kubernetes containers.
+If you need more options, consult a [complete list of Kubernetes commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-).
 
 ## `get pods`
 
@@ -34,7 +34,8 @@ kubectl get pods --namespace <POD_NAMESPACE>
 ```
 
 Replace `<POD_NAMESPACE>` with the namespace from which you want a list of pods.
-To see pods from all namespaces, use the `all-namespaces` flag:
+
+To get pods from all namespaces, use the `all-namespaces` flag:
 
 ```shell
 kubectl get pods --all-namespaces
@@ -67,7 +68,7 @@ You get a list of all logs from the given container:
 2023/11/20 15:55:55 [notice] 1#1: start worker process 47
 ```
 
-If there are too many logs, use the `tail` flag to limit the number you see:
+If there are too many logs, use the `tail` flag to limit the number you get:
 
 ```shell
 kubectl logs example-abc12 --tail 3
@@ -88,6 +89,7 @@ kubectl logs <POD_NAME> --container <CONTAINER_NAME>
 ```
 
 Replace both `<POD_NAME>` and `<CONTAINER_NAME>` with the correct names.
+
 To get logs from all containers, set the `all-containers` flag to `true`:
 
 ```shell
@@ -103,15 +105,15 @@ use the ` exec` command:
 kubectl exec <POD_NAME> -- <COMMAND>
 ```
 
-Replace `<POD_NAME>` with the pod you want run commands on and `<COMMAND>` with the commands to run,
+Replace `<POD_NAME>` with the pod where you want issue commands and `<COMMAND>` with the commands to issue,
 such as this example:
 
 ```shell
 kubectl exec example-abc12 -- date && time
 ```
 
-You see the result of the commands you specified as returned from the container,
-in this example the date and the time spent running the `time` command.
+You get the result of the commands you specified as returned from the container,
+in this example the date and the time spent executing the `time` command.
 
 If the pod has multiple containers, use the `container` flag to specify the container:
 
@@ -140,9 +142,9 @@ kubectl debug example-abc12
 This creates an ephemeral container inside the pod you specify
 so you can inspect the environment and troubleshoot any issues in your containers.
 
-To create an interactive shell within the new container and connect your terminal to it,
+To create an interactive shell within the new container and then connect your terminal to it,
 use the `stdin` and `tty` flags.
-These flags can be passed together using the `it` shorthand:
+Pass these flags together using the `it` shorthand:
 
 ```shell
 kubectl debug <POD_NAME> -it
