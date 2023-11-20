@@ -2,7 +2,9 @@
 
 [Kubernetes](https://kubernetes.io/docs/concepts/overview/) contains several commands, sometimes we can use these commands to do things. 
 In Azure, kubernetess is available, just like other cloud providers. 
-Speaking of commands, kubectl is the CLI that is used to interact with k8s. The kubectl cli commmunicates with the kubernettes API server. 
+Speaking of commands, [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) is the CLI that is used to interact with k8s. The kubectl cli commmunicates with the kubernettes API server.
+It has many commands.
+See [a complete list of Kubernetes commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
 
 ## `get pods`
 
@@ -25,7 +27,3 @@ I recommend when debugging you start with kubectl get pods, then `kubectl logs` 
 ## `debug`
 
 **Note:** The command `kubectl debug` is another option to considering when debugging a container. This command can be used to create a clone of a pod that does not terminate if an error is experienced inside the container. 
-
-## References
-
-- [A complete list of Kubernetes commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
