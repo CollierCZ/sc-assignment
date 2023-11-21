@@ -27,7 +27,7 @@ example-ghi56   1/1     Running   0          56m
 ```
 
 This defaults to the current namespace.
-To specify the namespace to return pods from, use the `namespace` flag:
+To specify the namespace from which to return pods, use the `namespace` flag:
 
 ```shell
 kubectl get pods --namespace <POD_NAMESPACE>
@@ -74,7 +74,7 @@ If there are too many logs, use the `tail` flag to limit the number you get:
 kubectl logs example-abc12 --tail 3
 ```
 
-You get the number of logs you specified:
+You get the most recent logs:
 
 ```shell
 2023/11/20 15:55:55 [notice] 1#1: start worker process 45
@@ -88,7 +88,7 @@ If the pod has multiple containers, use the `container` flag to specify the cont
 kubectl logs <POD_NAME> --container <CONTAINER_NAME>
 ```
 
-Replace both `<POD_NAME>` and `<CONTAINER_NAME>` with the correct names.
+Replace both `<POD_NAME>` and `<CONTAINER_NAME>` with the names you want.
 
 To get logs from all containers, set the `all-containers` flag to `true`:
 
@@ -121,8 +121,8 @@ If the pod has multiple containers, use the `container` flag to specify the cont
 kubectl exec <POD_NAME> --container <CONTAINER_NAME> -- <COMMAND>
 ```
 
-Replace both `<POD_NAME>` and `<CONTAINER_NAME>` with the correct names
-and `<COMMAND>` with the commands to run.
+Replace both `<POD_NAME>` and `<CONTAINER_NAME>` with the names you want
+and `<COMMAND>` with the commands to issue.
 
 ## `debug`
 
